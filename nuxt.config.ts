@@ -120,7 +120,6 @@ const config: Configuration = {
     id: 'UA-162265672-1'
   },
   build: {
-    extractCSS: true,
     plugins: [
       new webpack.ProvidePlugin({
         mapboxgl: 'mapbox-gl'
