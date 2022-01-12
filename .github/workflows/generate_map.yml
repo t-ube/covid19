@@ -1,9 +1,8 @@
 name: generate map 
 
 on:
-  push:
-    branches:
-      - development
+  workflow_dispatch:
+  
 jobs:
   build:
     runs-on: macos-latest
