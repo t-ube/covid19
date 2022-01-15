@@ -11,7 +11,7 @@ type DataType = {
           value: number
           children: [
             {
-              attr: 'その他'
+              attr: '軽症・中等症'
               value: number
             },
             {
@@ -19,6 +19,18 @@ type DataType = {
               value: number
             }
           ]
+        },
+        {
+          attr: '宿泊療養'
+          value: number
+        },
+        {
+          attr: '自宅療養'
+          value: number
+        },
+        {
+          attr: '入院等調整中'
+          value: number
         },
         {
           attr: '退院'
@@ -37,8 +49,11 @@ type ConfirmedCasesType = {
   検査実施人数: number
   陽性者数: number
   入院中: number
-  その他: number
+  軽症中等症: number
   重症: number
+  宿泊療養: number
+  自宅療養: number
+  入院等調整中: number
   死亡: number
   退院: number
 }
@@ -53,12 +68,13 @@ export default (data: DataType) => {
     検査実施人数: data.value,
     陽性者数: data.children[0].value,
     入院中: data.children[0].children[0].value,
-    その他: data.children[0].children[0].children[0].value,
-    // 軽症中等症: '-',
+    軽症中等症: data.children[0].children[0].children[0].value,
     重症: data.children[0].children[0].children[1].value,
-    // 重症: '-',
-    死亡: data.children[0].children[2].value,
-    退院: data.children[0].children[1].value
+    宿泊療養: data.children[0].children[1].value,
+    自宅療養: data.children[0].children[2].value,
+    入院等調整中: data.children[0].children[3].value,
+    死亡: data.children[0].children[4].value,
+    退院: data.children[0].children[5].value
   }
   return formattedData
 }
