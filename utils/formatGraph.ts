@@ -1,3 +1,5 @@
+import dayjs from 'dayjs'
+
 type DataType = {
   日付: Date
   小計: number
@@ -26,7 +28,7 @@ export default (data: DataType[]) => {
       if (!isNaN(subTotal)) {
         patSum += subTotal
         graphData.push({
-          label: `${date.getMonth() + 1}/${date.getDate()}`,
+          label: dayjs(date).format('YYYY/M/D'),
           transition: subTotal,
           cumulative: patSum
         })
