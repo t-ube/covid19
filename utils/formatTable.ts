@@ -44,7 +44,7 @@ export default (data: DataType[]) => {
   data.forEach(d => {
     const TableRow: TableDataType = {
       sortKey: dayjs(d['確定日']).format('YYYY/MM/DD') ?? '1970/01/01',
-      確定日: dayjs(d['確定日']).format('MM/DD') ?? '不明',
+      確定日: dayjs(d['確定日']).format('YYYY/M/D') ?? '不明',
       居住地: d['居住地'] ?? '調査中',
       年代: d['年代'] ?? '不明',
       性別: d['性別'] ?? '不明'
